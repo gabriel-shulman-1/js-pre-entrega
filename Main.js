@@ -46,19 +46,16 @@ function month(ind) {
 }
 
 function numberControl(tipe,number1){
-    let errorNumber
-    console.log(tipe,number1)
+    let errorNumber = false
     if(tipe === "a"){
         if(isNaN(number1)==true){
             alert("No es un numero. Inserte un numero")
-            errorNumber = false
             return errorNumber
         } else {
             console.log(number1)
             if(number1<1 || number1>12){
                 console.log("llegue")
                 alert("Numero de mes incorrecto. Inserte un numero correcto")
-                errorNumber = false
                 return errorNumber
             } else {
                 return number1
@@ -69,70 +66,113 @@ function numberControl(tipe,number1){
         if(isNaN(number1)==true){
         console.log(tipe,number1)
         alert("No es un numero. Inserte un numero")
-        errorNumber = false
         return errorNumber
     } else {
             return number1
         }
     }
     if(tipe === "ac"){
-        while(errorNumber==false){
             if(isNaN(number1)==true){
-            console.log(tipe,number1)
             alert("No es un numero")
-            errorNumber = false
+            return errorNumber
         } else {
             if(number1<0){
                 alert("El valor es menor a 0")
+                return errorNumber
             }
             else {
                 return number1
             }
-            }
         }
-        number1=prompt("Vuelva a insertar un numero:")
     }
 }
 
 function optionControl(tipe,control){
-    let errorValue
-    control = control.toLowerCase();
-    if(tipe === "ac"){
-        while(errorValue==false){
+    let errorValue = false
+    console.log(tipe,control)
+    if(tipe === "ac1"){
             if(isNaN(control)==false){
-            alert("Ingresaste un numero. Inserte una opcion: I ó G")
-            errorValue = false
-        } else {
-                if(control=="i"){
+                alert("Ingresaste un numero")
+                return errorValue
+            } else {
+                if(control==="i"){
                     return control
                 }
-                if(control=="g"){
+                if(control==="g"){
                     return control
                 }
                 else{
-                    alert("Ingresaste una opcion invalida. Inserte una opcion: I ó G")
-                errorValue = false
-                }
+                    alert("Ingresaste una opcion invalida.")
+                    return errorValue
             }
         }
     }
+    if(tipe === "ac2"){
+        console.log(tipe,control)
+        if(isNaN(control)==false){
+            alert("Ingresaste un numero")
+            return errorValue
+        } else {
+            if(control==="y"){
+                return control
+            }
+            if(control==="n"){
+                return control
+            }
+            else{
+                alert("Ingresaste una opcion invalida.")
+                return errorValue
+        }
+    }
+}
 }
 
 function moves () {
-    let tipe = "ac"
+    let a =false
+    let c = false
+    let b = false
+    let stop = "y"
+    let tipe
     let newMoves = []
     alert("Vamos a empezar a ingresar los moviemientos del mes")
-    for (let index = 0; index < newMoves.length; index++) {
-        const nuevoMovimiento = new movimiento(prompt("Ingrese la descripcion del movimiento:"),optionControl(tipe,prompt("Ingrese el tipo de ingreso. I para ingresos y G para gastos")))
-        //.....
+    while(stop === "y"){
+        tipe="ac1"
+        a=prompt("Ingrese la descripcion")
+        console.log(tipe,a)
+        while(b==false){b=optionControl(tipe,prompt("Definir si es ingreso(i) ó gasto(g)"))}
+        console.log(b)
+        while(c==false){c=numberControl(tipe,prompt("Ingrese el monto"))}
+        console.log(c)
+        //const nuevoMovimiento = new movimiento(a,b,c)
+        //newMoves.push(nuevoMovimiento)
+        b=false
+        c=false
+        stop = false
+        tipe="ac2"
+        while(stop==false){
+            stop=optionControl(tipe,prompt("Desea ingresar otro movimiento? Y ó N"))
+            console.log(tipe,stop)
+        }
     }
+    /*
+    for (let index = 0; index <= newMoves.length; index++) {
+        const nuevoMovimiento = new movimiento(a,b,c)
+        console.log(nuevoMovimiento.detalle)
+        console.log(nuevoMovimiento.tipo)
+        console.log(nuevoMovimiento.monto)
+        b=false
+        c=false
+        newMoves[dim++]
+    }
+    */
 }
 
 function movimiento (detalle,tipo,monto){
     this.detalle = detalle
-    this.tipe = tipe
+    this.tipo = tipo
     this.monto = monto
 }
 
 
-inicio()
+//inicio()
+moves()
