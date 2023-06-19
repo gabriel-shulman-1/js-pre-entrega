@@ -19,12 +19,14 @@ function inicio(){
     let mes
     let plata
     let tipeNum
+    let principio
     alert("Hola!, este es un reporte de movimientos monetarios.")
     tipeNum = "a"
     mes = prompt("Por favor, ingresa el mes a registrar. Los meses se ingresan con numeros del 1 al 12:")
     while(numberControl(tipeNum,mes)==false){
         mes = prompt("Por favor, volve a ingresa el mes a registrar:")
     }
+    console.log(mes)
     tipeNum = "b"
     plata = prompt("Ahora ingresa el dinero que dispones al principio de mes")
     while(numberControl(tipeNum,plata)==false){
@@ -32,6 +34,8 @@ function inicio(){
         console.log(tipeNum,plata)
     }
     alert("El mes que vas a controlar es el de " + month(mes) + " y empezas el mes con un monto de " + plata + " pesos")
+    principio=[mes,plata]
+    return principio
 }
 
 function month(ind) {
@@ -71,7 +75,7 @@ function numberControl(tipe,number1){
             return number1
         }
     }
-    if(tipe === "ac"){
+    if(tipe === "ac1"){
             if(isNaN(number1)==true){
             alert("No es un numero")
             return errorNumber
@@ -89,7 +93,6 @@ function numberControl(tipe,number1){
 
 function optionControl(tipe,control){
     let errorValue = false
-    console.log(tipe,control)
     if(tipe === "ac1"){
             if(isNaN(control)==false){
                 alert("Ingresaste un numero")
@@ -108,7 +111,6 @@ function optionControl(tipe,control){
         }
     }
     if(tipe === "ac2"){
-        console.log(tipe,control)
         if(isNaN(control)==false){
             alert("Ingresaste un numero")
             return errorValue
@@ -129,8 +131,8 @@ function optionControl(tipe,control){
 
 function moves () {
     let a =false
-    let c = false
     let b = false
+    let c = false
     let stop = "y"
     let tipe
     let newMoves = []
@@ -138,33 +140,45 @@ function moves () {
     while(stop === "y"){
         tipe="ac1"
         a=prompt("Ingrese la descripcion")
-        console.log(tipe,a)
         while(b==false){b=optionControl(tipe,prompt("Definir si es ingreso(i) ó gasto(g)"))}
-        console.log(b)
-        while(c==false){c=numberControl(tipe,prompt("Ingrese el monto"))}
-        console.log(c)
-        //const nuevoMovimiento = new movimiento(a,b,c)
-        //newMoves.push(nuevoMovimiento)
+        while(c==false){c=numberControl(tipe,parseInt(prompt("Ingrese el monto")))}
+        const nuevoMovimiento = new movimiento(a,b,c)
+        newMoves.push(nuevoMovimiento)
         b=false
         c=false
         stop = false
         tipe="ac2"
-        while(stop==false){
-            stop=optionControl(tipe,prompt("Desea ingresar otro movimiento? Y ó N"))
-            console.log(tipe,stop)
+        while(stop==false){stop=optionControl(tipe,prompt("Desea ingresar otro movimiento? Y ó N"))}
+    }
+    return newMoves
+}
+
+function results(moves) {
+    let income = 0
+    let spent = 0
+    let total
+    parseInt(income)
+    parseInt(spent)
+    console.log(income + " " + spent)
+    for (const elemento of moves) {
+        if(elemento.tipo=="i"){
+            income=elemento.monto + income
+        } else {
+            spent=elemento.monto + spent
         }
     }
-    /*
-    for (let index = 0; index <= newMoves.length; index++) {
-        const nuevoMovimiento = new movimiento(a,b,c)
-        console.log(nuevoMovimiento.detalle)
-        console.log(nuevoMovimiento.tipo)
-        console.log(nuevoMovimiento.monto)
-        b=false
-        c=false
-        newMoves[dim++]
-    }
-    */
+    total = [income,spent]
+    return total
+}
+
+function analisis (inicio,gastoEingreso){
+    let final = inicio[1] + (gastoEingreso[0]-gastoEingreso[1])
+    console.log(gastoEingreso[0])
+    console.log(gastoEingreso[1])
+    console.log(gastoEingreso[0]+gastoEingreso[1])
+    alert("Tus ingresos en el mes de " + month(inicio[0]) + " fueron de " + gastoEingreso[0] + " pesos")
+    alert("Tus gastos en el mes de " + month(inicio[0]) + " fueron de " + gastoEingreso[1] + " pesos")
+    alert("Tu saldo a fin de mes fue de " + final)
 }
 
 function movimiento (detalle,tipo,monto){
@@ -175,4 +189,6 @@ function movimiento (detalle,tipo,monto){
 
 
 //inicio()
-moves()
+//moves()
+//results()
+analisis(inicio(),results(moves()))
