@@ -22,8 +22,8 @@ function inicio(){
 
 function month(ind) {
     let ChosedMonth
-    const mes = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
-    for (let index = 0; index <= ind; index++) {
+    const mes = [" ","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+    for (let index = 1; index <= ind; index++) {
         if(index == ind){
             ChosedMonth = mes[ind]
             return ChosedMonth
@@ -39,7 +39,6 @@ function numberControl(tipe,number1){
             return errorNumber
         } else {
             if(number1<1 || number1>12){
-                console.log("llegue")
                 alert("Numero de mes incorrecto. Inserte un numero correcto")
                 return errorNumber
             } else {
@@ -164,6 +163,28 @@ function movimiento (detalle,tipo,monto){
     this.monto = monto
 }
 
-function main () {
-    analisis(inicio(),results(moves()))
+function report (moves) {
+    let a,b,c
+    for (const elemento of moves) {
+        a=toString(elemento.detalle)
+        b=toString(elemento.tipo)
+        c=toString(elemento.monto)
+        alert(a+" "+b+" "+c)
+    }
 }
+
+function main () {
+    let tipe = "ac2"
+    let continuar = true
+    while(continuar==true){
+        analisis(inicio(),results(moves()))
+        while(continuar==true){continuar=optionControl(tipe,prompt("Desea hacer otro reporte? Y ó N"))}
+        if(continuar=="y"){
+            continuar=true
+        } else {
+            continuar=false
+        }
+    }
+    alert("nos vemos!")
+}
+main()
