@@ -164,23 +164,34 @@ class herramientas {
 function report(moves) {
     let a, b, c
     let d = 1
-    let e, f, g, h
     alert("A continuacion, vamos a mostrarte el reporte de movimientos realizados.")
     alert("Total de movimientos: " + moves.length + " movimientos")
     for (const elemento of moves) {
         a = elemento.detalle
         b = elemento.tipo
         c = elemento.monto
-        if (elemento.tipo == "i") {
-            if (e < elemento.monto) {
-                f = [d, elemento]
-            }
-        } else {
-            if (g < elemento.monto) {
-                h = [d, elemento]
-            }
-        }
         alert("Movimiento n°" + d + ": " + a + ". Tipo de movimiento: " + b + ". Monto: " + c + " Pesos")
+        d++
+    }
+}
+
+function USS(moves) {
+    let dolar=490
+    let cotizar = moves.map((moves)=>{
+        return{
+            detalle: moves.detalle,
+            tipo: moves.tipo,
+            monto: moves.monto / dolar
+        }
+    })
+    let a, b, c
+    let d = 1
+    alert("A continuacion, vamos a mostrarte tus movimientos en dolares.")
+    for (const elemento of cotizar) {
+        a = elemento.detalle
+        b = elemento.tipo
+        c = elemento.monto
+        alert("Movimiento n°" + d + ". Monto: " + c.toFixed(2) + " Dolares")
         d++
     }
 }
@@ -196,6 +207,7 @@ function main() {
         movimientos = moves()
         analisis(comienzo, results(movimientos))
         report(movimientos)
+        USS(movimientos)
         while (continuar == true) { continuar = optionControl(tipe, prompt("Desea hacer otro reporte? Y ó N")) }
         if (continuar == "y") {
             continuar = true
