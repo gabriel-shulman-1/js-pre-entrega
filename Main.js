@@ -1,20 +1,3 @@
-//crear clase "movimiento"
-//  primero pida salfo final de fin de mes
-//entrada= descripcion(string), monto(int), gasto o ingreso(boolean), gasto a futuro(boolean)
-//metodo que valide g ó i/ s ó n
-//clase resultados que muestre:
-/*  saldo final de mes anterior
-    balance del mes
-    saldo del mes corriente
-    gastos a debitar al otro mes
-    dia en que se gasto mas
-*/
-//clase mes para indicar el mes anterior
-/*
-    listar todos los meses
-    agregar metodo para el año
-*/
-
 function inicio(){
     let mes
     let plata
@@ -26,7 +9,6 @@ function inicio(){
     while(numberControl(tipeNum,mes)==false){
         mes = prompt("Por favor, volve a ingresa el mes a registrar:")
     }
-    console.log(mes)
     tipeNum = "b"
     plata = prompt("Ahora ingresa el dinero que dispones al principio de mes")
     while(numberControl(tipeNum,plata)==false){
@@ -56,7 +38,6 @@ function numberControl(tipe,number1){
             alert("No es un numero. Inserte un numero")
             return errorNumber
         } else {
-            console.log(number1)
             if(number1<1 || number1>12){
                 console.log("llegue")
                 alert("Numero de mes incorrecto. Inserte un numero correcto")
@@ -159,7 +140,6 @@ function results(moves) {
     let total
     parseInt(income)
     parseInt(spent)
-    console.log(income + " " + spent)
     for (const elemento of moves) {
         if(elemento.tipo=="i"){
             income=elemento.monto + income
@@ -172,10 +152,7 @@ function results(moves) {
 }
 
 function analisis (inicio,gastoEingreso){
-    let final = inicio[1] + (gastoEingreso[0]-gastoEingreso[1])
-    console.log(gastoEingreso[0])
-    console.log(gastoEingreso[1])
-    console.log(gastoEingreso[0]+gastoEingreso[1])
+    let final = parseInt(inicio[1]) + (parseInt(gastoEingreso[0])-parseInt(gastoEingreso[1]))
     alert("Tus ingresos en el mes de " + month(inicio[0]) + " fueron de " + gastoEingreso[0] + " pesos")
     alert("Tus gastos en el mes de " + month(inicio[0]) + " fueron de " + gastoEingreso[1] + " pesos")
     alert("Tu saldo a fin de mes fue de " + final)
@@ -187,8 +164,6 @@ function movimiento (detalle,tipo,monto){
     this.monto = monto
 }
 
-
-//inicio()
-//moves()
-//results()
-analisis(inicio(),results(moves()))
+function main () {
+    analisis(inicio(),results(moves()))
+}
