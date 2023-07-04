@@ -1,3 +1,50 @@
 body{
-    background-color: black;
+    background-color: rgb(204, 204, 204);
+    color: black;
+
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+.uno{
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    align-items: stretch;
+}
+.dos{
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    align-items: stretch;
+}
+body main .uno #error {
+    color: red;
+}
+body main .uno button {
+    margin: 1em;
+    width: 6rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+body main .dos .par:nth-child(4){
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+body main .dos div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+body main .dos div button {
+    margin: 1em;
+    width: 2rem;
 }

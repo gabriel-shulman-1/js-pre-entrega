@@ -8,6 +8,30 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <h1>Resumen de cuentas</h1>
+    </header>
+    <main>
+        <div class="uno">
+            <h2>Mes a controlar <strong></strong></h2>
+            <p>Monto con el cual comienza: <strong></strong></p>
+            <p>Escoja el mes a controlar: <input type="text"></p>
+            <p>Ingrese el monto con el cual comienza el mes: <input type="number"></p>
+            <p id="error">Pusiste letras, tenes que poner un numero.</p>
+            <button id="inicioRegistro">Registrar</button>
+        </div>
+        <div class="dos">
+            <h2>Registro de movimientos</h2>
+            <p class="par">Detalle del movimiento: <input type="text"></p>
+            <p class="par">Tipo de movimiento: <input type="text"></p>
+            <p class="par">Monto: <input type="number"></p>
+            <p class="par">¿Desea ingresar otro movimiento?</p>
+            <div>
+                <button>Si</button>
+                <button>No</button>
+            </div>
+        </div>
+    </main>
     <script src="./Main.js"></script>
 </body>
 </html>

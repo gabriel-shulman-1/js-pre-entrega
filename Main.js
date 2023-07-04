@@ -160,7 +160,6 @@ class herramientas {
     }
 }
 
-
 function report(moves) {
     let a, b, c
     let d = 1
