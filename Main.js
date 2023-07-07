@@ -1,5 +1,8 @@
+
 function inicio() {
     let mes, plata, tipeNum, principio
+    let contenedorMes = document.getElementById("mesSeleccionado")
+    let contenedorMonto = document.getElementById("montoInicial")
     tipeNum = "a"
     mes = prompt("Por favor, ingresa el mes a registrar. Los meses se ingresan con numeros del 1 al 12:")
     while (numberControl(tipeNum, mes) == false) {
@@ -10,7 +13,9 @@ function inicio() {
     while (numberControl(tipeNum, plata) == false) {
         plata = prompt("Por favor, volve a ingresa un numero")
     }
-    alert("El mes que vas a controlar es el de " + month(mes) + " y empezas el mes con un monto de " + plata + " pesos")
+    contenedorMes.innerHTML="<h2>" + "Mes a controlar: " + mes + "</h2>"
+    contenedorMonto.innerHTML="<h2>" + "Monto inicial: " + plata + " $" + "</h2>"
+    //alert("El mes que vas a controlar es el de " + month(mes) + " y empezas el mes con un monto de " + plata + " pesos")
     principio = [mes, plata]
     return principio
 }
