@@ -1,7 +1,6 @@
 body{
-    background-color: rgb(204, 204, 204);
+    background-color: rgb(255, 255, 255);
     color: black;
-
 }
 main{
     display: flex;
@@ -11,22 +10,45 @@ main{
     margin-left: 10rem;
     margin-right: 10rem;
 }
+main .uno h2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+main .dos h2 {
+    margin-left: auto;
+    margin-right: auto;
+}
 .uno{
+    background-color: rgb(163, 163, 163);
     width: 35rem;
     display: flex;
     flex-direction: column;
     margin: 1rem;
     align-items: stretch;
+    border-color: black;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-radius: 1rem;
+    padding: 1rem;
 }
 .dos{
+    background-color: rgb(163, 163, 163);
     width: 35rem;
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    align-items: stretch;
+    align-items: flex-end;
+    border-color: black;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-radius: 1rem;
+    padding: 1rem;
 }
 body main .uno #error {
     color: red;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: bold;
 }
 body main .uno button {
     margin: 1em;
@@ -34,7 +56,10 @@ body main .uno button {
     margin-right: auto;
     margin-left: auto;
 }
-body main .dos .par:nth-child(4){
+.par {
+    margin-right: 10rem;
+}
+body main .dos .par:nth-child(5){
     width: auto;
     margin-right: auto;
     margin-left: auto;
@@ -43,6 +68,8 @@ body main .dos div {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
 }
 body main .dos div button {
     margin: 1em;
