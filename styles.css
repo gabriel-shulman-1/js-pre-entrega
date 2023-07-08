@@ -37,13 +37,31 @@ main .dos h2 {
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    align-items: flex-end;
+    align-items: center;
     border-color: black;
     border-width: 0.2rem;
     border-style: solid;
     border-radius: 1rem;
     padding: 1rem;
 }
+
+.dos div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.dos div .ingreso {
+    margin-right: 1rem;
+    width: auto;
+}
+
+.dos div .egreso {
+    margin-left: 1rem;
+    width: auto;
+}
+
 body main .uno #error {
     color: red;
     margin-right: auto;
@@ -56,9 +74,7 @@ body main .uno button {
     margin-right: auto;
     margin-left: auto;
 }
-.par {
-    margin-right: 10rem;
-}
+
 body main .dos .par:nth-child(5){
     width: auto;
     margin-right: auto;

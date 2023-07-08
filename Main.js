@@ -1,15 +1,99 @@
+function escucharMes () {
+    let mesMonto
+    let mesSelected
+    let mes = document.getElementsByClassName("month")
+    let montoInicial = document.getElementById("ingresoPlata")
+    let iniciarRegistro = document.getElementById("inicioRegistro")
+    let tituloPrincipal = document.getElementById("titulo")
+    for (let i = 0; i<mes.length;i++) {
+        mes[i].addEventListener("click", 
+        function(){console.log(mes[i].innerText)
+            mesSelected = (mes[i].innerText)},
+        false)
+        }
+    //console.log(mesSelected)
+    iniciarRegistro.addEventListener("click", tituloP)
+    function tituloP() {
+        tituloPrincipal.innerHTML = "<h2>Mes a controlar: " + mesSelected + ". Monto inicial: " + montoInicial.value 
+    }
+    mesMonto = [mesSelected,montoInicial.value]
+    return mesMonto
+}
 
+function moves() {
+    let newMoves = []
+    let tipoMov
+    
+    let detalle = document.getElementById("detalleMovimiento")
+    let ingreso = document.getElementById("ingreso")
+    let egreso = document.getElementById("egreso")
+    let montoMovimiento = document.getElementById("montoMovimiento")
+    let guardarRegistro = document.getElementById("saveRegistro")
+    let noGuardarRegistro = document.getElementById("noSaveRegistro")
+    ingreso.addEventListener("click",bot1)
+    egreso.addEventListener("click",bot2)
+    guardarRegistro.addEventListener("click",bot3)
+    noGuardarRegistro.addEventListener("click",bot4)
+    function bot1(){
+        tipoMov = "ingreso"
+      }
+    function bot2(){
+        tipoMov = "egreso"
+      }
+      function bot3(){
+        guardarRegistro.value=true
+        noGuardarRegistro.value=false
+        registroNuevo = new herramientas(detalle.value,tipoMov,Number(montoMovimiento.value))
+      }
+    function bot4(){
+        guardarRegistro.value=false
+        noGuardarRegistro.value=true
+        registroNuevo = new herramientas(detalle.value,tipoMov,Number(montoMovimiento.value))
+        newMoves.push(registroNuevo)
+        return newMoves
+      }
+}
+
+class herramientas {
+    constructor(detalle, tipo, monto) {
+        this.detalle = detalle
+        this.tipo = tipo
+        this.monto = monto
+    }
+}
+
+function main() {
+        let resumen = document.getElementById("Resumen")
+        let inicial = escucharMes()
+        let movimientos = moves()
+        
+        console.log(inicial)
+        console.log(movimientos)
+        /*movimientos.forEach(element => {
+            let movimiento = document.createElement(div)
+            movimiento.innerHTML = `
+                <h3>${element.detalle}</h3>
+                <p>${element.tipo}</p>
+                <p>${element.monto}</p>
+            `
+            resumen.appendChild(movimiento)
+        });*/
+}
+main()
+/*
 function inicio() {
     let mes, plata, tipeNum, principio
     let contenedorMes = document.getElementById("mesSeleccionado")
     let contenedorMonto = document.getElementById("montoInicial")
+    let ingresoMes = document.getElementById("escojerMes")
+    let ingresoPlata = document.getElementById("ingresoPlata")
     tipeNum = "a"
-    mes = prompt("Por favor, ingresa el mes a registrar. Los meses se ingresan con numeros del 1 al 12:")
+    mes = ingresoMes.addEventListener("keydown",)
     while (numberControl(tipeNum, mes) == false) {
         mes = prompt("Por favor, volve a ingresa el mes a registrar:")
     }
     tipeNum = "b"
-    plata = prompt("Ahora ingresa el dinero que dispones al principio de mes")
+    plata = ingresoPlata.addEventListener("input")
     while (numberControl(tipeNum, plata) == false) {
         plata = prompt("Por favor, volve a ingresa un numero")
     }
@@ -222,14 +306,4 @@ function main() {
     alert("nos vemos!")
 }
 
-/*function tostada (){
-    Toastify({
-        text: "Registro añadido",
-        className: "info",
-        style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
-        }
-      }).showToast();
-}*/
-
-//main()
+main()*/
