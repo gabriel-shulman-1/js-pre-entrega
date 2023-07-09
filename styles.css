@@ -24,7 +24,7 @@ main .dos h2 {
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    align-items: stretch;
+    align-items: center;
     border-color: black;
     border-width: 0.2rem;
     border-style: solid;
@@ -52,12 +52,12 @@ main .dos h2 {
     margin-bottom: 1rem;
 }
 
-.dos div .ingreso {
+.dos div #ingreso {
     margin-right: 1rem;
     width: auto;
 }
 
-.dos div .egreso {
+.dos div #egreso {
     margin-left: 1rem;
     width: auto;
 }
@@ -91,6 +91,20 @@ body main .dos div button {
     margin: 1em;
     width: 2rem;
 }
+
+#Resumen .resumenCuenta:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-style: solid;
+    background-color: #ff9100;
+    border-radius: 0.5rem;
+    width: 24rem;
+    margin-bottom: 0.5rem;
+    gap: 0;
+    align-items: center;
+}
+
 #Resumen .resumenCuenta {
     display: flex;
     flex-direction: row;
@@ -105,18 +119,6 @@ body main .dos div button {
     margin-bottom: 0.5rem;
 }
 
-#Resumen .resumenCuenta:nth-child(1) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-left: 1rem;
-    border-style: solid;
-    padding-right: 1rem;
-    background-color: #ff9100;
-    border-radius: 0.5rem;
-    width: 24rem;
-    margin-bottom: 0.5rem;
-}
 
 #Resumen{
     display: flex;
@@ -126,4 +128,10 @@ body main .dos div button {
     flex-direction: column;
     padding: 1rem;
     border-radius: 0.8rem;
+}
+
+.uno #titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
