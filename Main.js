@@ -11,19 +11,18 @@ function escucharMes () {
             mesSelected = (mes[i].innerText)},
         false)
         }
-    //console.log(mesSelected)
     iniciarRegistro.addEventListener("click", tituloP)
     function tituloP() {
         tituloPrincipal.innerHTML = "<h2>Mes a controlar: " + mesSelected + ". Monto inicial: " + montoInicial.value 
+        mesMonto = [mesSelected,montoInicial.value]
+        console.log("mes: " + mesMonto[0] + ".monto : " + mesMonto[1])
     }
-    mesMonto = [mesSelected,montoInicial.value]
     return mesMonto
 }
 
 function moves() {
     let newMoves = []
     let tipoMov
-    
     let detalle = document.getElementById("detalleMovimiento")
     let ingreso = document.getElementById("ingreso")
     let egreso = document.getElementById("egreso")
@@ -44,14 +43,17 @@ function moves() {
         guardarRegistro.value=true
         noGuardarRegistro.value=false
         registroNuevo = new herramientas(detalle.value,tipoMov,Number(montoMovimiento.value))
+        newMoves.push(registroNuevo)
+        console.log("detalle: " + registroNuevo.detalle + " tipo:" + registroNuevo.tipo + " monto: "+registroNuevo.monto)
       }
     function bot4(){
         guardarRegistro.value=false
         noGuardarRegistro.value=true
         registroNuevo = new herramientas(detalle.value,tipoMov,Number(montoMovimiento.value))
         newMoves.push(registroNuevo)
-        return newMoves
-      }
+        console.log("detalle: " + registroNuevo.detalle + " tipo:" + registroNuevo.tipo + " monto: "+registroNuevo.monto)
+        return(newMoves)
+    }
 }
 
 class herramientas {
@@ -62,22 +64,41 @@ class herramientas {
     }
 }
 
+function reportar (inicioMes,registrosMes) {
+    let i = 1
+    let resumen = document.getElementById("Resumen")
+    let inicioDeMes = document.createElement("div")
+    inicioDeMes.className = "resumenCuenta"
+    inicioDeMes.innerHTML = `
+        <h3>Resumen del mes de ${inicioDeMes[0]}</h3>
+        <h3>Saldo inicial: ${inicioDeMes[1]}</h3>`
+        resumen.appendChild(inicioDeMes)
+    let descripcionMov = document.createElement("div")
+    descripcionMov.className = "resumenCuenta"
+    descripcionMov.innerHTML = `
+        <p>n°</p>
+        <p>Detalle</p>
+        <p>  Tipo  </p>
+        <p>Monto</p>`
+        resumen.appendChild(descripcionMov)
+    registrosMes.forEach(elemento => { 
+        let divMovimiento = document.createElement("div")
+        divMovimiento.className = "resumenCuenta"
+        divMovimiento.innerHTML = `
+        <p>${i}</p>
+        <p>${elemento.detalle}</p>
+        <p>${elemento.tipo}</p>
+        <p>${elemento.monto}</p>`
+        resumen.appendChild(divMovimiento)
+        i++
+    });
+}
+
+
 function main() {
-        let resumen = document.getElementById("Resumen")
         let inicial = escucharMes()
         let movimientos = moves()
-        
-        console.log(inicial)
-        console.log(movimientos)
-        /*movimientos.forEach(element => {
-            let movimiento = document.createElement(div)
-            movimiento.innerHTML = `
-                <h3>${element.detalle}</h3>
-                <p>${element.tipo}</p>
-                <p>${element.monto}</p>
-            `
-            resumen.appendChild(movimiento)
-        });*/
+        reportar()
 }
 main()
 /*
