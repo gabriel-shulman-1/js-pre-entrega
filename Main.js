@@ -10,14 +10,12 @@ function escucharMes () {
     for (let i = 0; i<mes.length;i++) {
         mes[i].addEventListener("click", 
         function(){console.log(mes[i].innerText)
-            mesSelected = (mes[i].innerText)},
-        false)
+            mesSelected = (mes[i].innerText)},false)
         }
     iniciarRegistro.addEventListener("click", tituloP)
     function tituloP() {
         tituloPrincipal.innerHTML = "<h2>Mes a controlar: " + mesSelected + ". Monto inicial: " + montoInicial.value + " $ </h2>"
         total = [mesSelected,Number(montoInicial.value)]
-        console.log(total)
         moves(total)
     }
 }
@@ -86,11 +84,9 @@ class herramientas {
 }
 
 function reportar (mensual) {
-    let parajson = [mensual.arrayInicial[0],JSON.stringify(mensual)]
-    //imprimir(parajson)
-    //let sacarjson = JSON.parse(parajson)
+    let parajson = JSON.stringify([mensual.arrayInicial[0],mensual])
+    localStorage.setItem("registro", parajson)
     let i = 1
-    let existe = true
     let total = mensual.arrayInicial[1]
     let resumen = document.getElementById("Resumen")
     let inicioDeMes = document.createElement("div")
@@ -127,7 +123,7 @@ function reportar (mensual) {
     finalCuenta.className = "resumenCuenta"
     finalCuenta.innerHTML = `
         <h3>Saldo final : ${total} $ </h3>`
-        resumen.appendChild(finalCuenta)
-    existe=false
+        resumen.appendChild(finalCuenta) 
 }
+
 escucharMes()

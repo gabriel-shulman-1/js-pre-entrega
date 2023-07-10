@@ -31,6 +31,19 @@ main .dos h2 {
     border-radius: 1rem;
     padding: 1rem;
 }
+.uno #mes .month {
+    border-style: solid;
+    border-radius: 0.5rem;
+    margin: 0.3rem;
+}
+
+.uno #mes .month:hover {
+    border-style: solid;
+    border-radius: 0.5rem;
+    margin: 0.3rem;
+    background-color: white;
+}
+
 .dos{
     background-color: rgb(163, 163, 163);
     width: 35rem;
@@ -57,9 +70,21 @@ main .dos h2 {
     width: auto;
 }
 
+.dos div #ingreso:hover {
+    margin-right: 1rem;
+    width: auto;
+    background-color: greenyellow;
+}
+
 .dos div #egreso {
     margin-left: 1rem;
     width: auto;
+}
+
+.dos div #egreso:hover {
+    margin-left: 1rem;
+    width: auto;
+    background-color: red;
 }
 
 body main .uno #error {
@@ -86,6 +111,20 @@ body main .dos div {
     justify-content: center;
     margin-right: auto;
     margin-left: auto;
+}
+body main .dos div button {
+    margin: 1em;
+    width: 2rem;
+}
+body main .dos div #saveRegistro:hover {
+    margin: 1em;
+    width: 2rem;
+    background-color: rgb(77, 77, 255);
+}
+body main .dos div #noSaveRegistro:hover {
+    margin: 1em;
+    width: 2rem;
+    background-color: rgb(229, 255, 0);
 }
 body main .dos div button {
     margin: 1em;
