@@ -24,26 +24,69 @@ main .dos h2 {
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    align-items: stretch;
+    align-items: center;
     border-color: black;
     border-width: 0.2rem;
     border-style: solid;
     border-radius: 1rem;
     padding: 1rem;
 }
+.uno #mes .month {
+    border-style: solid;
+    border-radius: 0.5rem;
+    margin: 0.3rem;
+}
+
+.uno #mes .month:hover {
+    border-style: solid;
+    border-radius: 0.5rem;
+    margin: 0.3rem;
+    background-color: white;
+}
+
 .dos{
     background-color: rgb(163, 163, 163);
     width: 35rem;
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    align-items: flex-end;
+    align-items: center;
     border-color: black;
     border-width: 0.2rem;
     border-style: solid;
     border-radius: 1rem;
     padding: 1rem;
 }
+
+.dos div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.dos div #ingreso {
+    margin-right: 1rem;
+    width: auto;
+}
+
+.dos div #ingreso:hover {
+    margin-right: 1rem;
+    width: auto;
+    background-color: greenyellow;
+}
+
+.dos div #egreso {
+    margin-left: 1rem;
+    width: auto;
+}
+
+.dos div #egreso:hover {
+    margin-left: 1rem;
+    width: auto;
+    background-color: red;
+}
+
 body main .uno #error {
     color: red;
     margin-right: auto;
@@ -56,9 +99,7 @@ body main .uno button {
     margin-right: auto;
     margin-left: auto;
 }
-.par {
-    margin-right: 10rem;
-}
+
 body main .dos .par:nth-child(5){
     width: auto;
     margin-right: auto;
@@ -74,4 +115,62 @@ body main .dos div {
 body main .dos div button {
     margin: 1em;
     width: 2rem;
+}
+body main .dos div #saveRegistro:hover {
+    margin: 1em;
+    width: 2rem;
+    background-color: rgb(77, 77, 255);
+}
+body main .dos div #noSaveRegistro:hover {
+    margin: 1em;
+    width: 2rem;
+    background-color: rgb(229, 255, 0);
+}
+body main .dos div button {
+    margin: 1em;
+    width: 2rem;
+}
+
+#Resumen .resumenCuenta:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-style: solid;
+    background-color: #ff9100;
+    border-radius: 0.5rem;
+    width: 24rem;
+    margin-bottom: 0.5rem;
+    gap: 0;
+    align-items: center;
+}
+
+#Resumen .resumenCuenta {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+    padding-left: 1rem;
+    border-style: solid;
+    padding-right: 1rem;
+    background-color: #e7e5e5;
+    border-radius: 0.5rem;
+    width: 24rem;
+    margin-bottom: 0.5rem;
+}
+
+
+#Resumen{
+    display: flex;
+    border-style: solid;
+    width: 34rem;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 0.8rem;
+}
+
+.uno #titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

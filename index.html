@@ -13,25 +13,48 @@
         <h1>Resumen de cuentas</h1>
     </header>
     <main>
+        <div id="nuevoMes"></div>
         <div class="uno">
-            <h2 id="mesSeleccionado"></h2>
-            <h2 id="montoInicial"></h2>
-            <p>Escoja el mes a controlar: <input type="text"></p>
-            <p>Ingrese el monto con el cual comienza el mes: <input type="number"></p>
-            <p id="error">Pusiste letras, tenes que poner un numero.</p>
+            <div id="titulo"></div>
+            <div id="mes">
+                <h3>Escoja el mes a controlar:</h3>
+                <ul class="month">Enero</ul>
+                <ul class="month">Febrero</ul>
+                <ul class="month">Marzo</ul>
+                <ul class="month">Abril</ul>
+                <ul class="month">Mayo</ul>
+                <ul class="month">Junio</ul>
+                <ul class="month">Julio</ul>
+                <ul class="month">Agosto</ul>
+                <ul class="month">Septiembre</ul>
+                <ul class="month">Octubre</ul>
+                <ul class="month">Noviembre</ul>
+                <ul class="month">Diciembre</ul>
+            </div>
+            <div id="monto">
+                <h3>Ingrese el monto con el cual comienza el mes: <input type="number" id="ingresoPlata"></h3>
+            </div>
             <button id="inicioRegistro">Registrar</button>
         </div>
+
         <div class="dos">
-            <h2>Registro de movimientos</h2>
-            <p class="par">Detalle del movimiento: <input type="text"></p>
-            <p class="par">Tipo de movimiento: <input type="text"></p>
-            <p class="par">Monto: <input type="number"></p>
+            <h2 id="cantidadMov">Registro de movimientos</h2>
+            <p>Detalle del movimiento: <input type="text"
+                id="detalleMovimiento"></p>
+            <p>Tipo de movimiento:</p>
+            <div>
+                <button id="ingreso">ingreso</button>
+                <button id="egreso">Gasto</button>
+            </div>
+            <p>Monto: <input type="number" id="montoMovimiento"></p>
+            <p id="error"></p>
             <p class="par">¿Desea ingresar otro movimiento?</p>
             <div>
-                <button>Si</button>
-                <button>No</button>
+                <button id="saveRegistro">Si</button>
+                <button id="noSaveRegistro">No</button>
             </div>
         </div>
+
     </main>
     <script src="./luxonFull.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
