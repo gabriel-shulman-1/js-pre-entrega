@@ -49,20 +49,14 @@ function moves(inicial) {
         guardarRegistro.value=true
         noGuardarRegistro.value=false
         registroNuevo = new herramientas(detalle.value,tipoMov,Number(montoMovimiento.value))
-        newMoves.push(registroNuevo)
-        console.log("detalle: " + registroNuevo.detalle + " tipo:" + registroNuevo.tipo + " monto: "+registroNuevo.monto)
-    }
+        newMoves.push(registroNuevo)}
     function bot4(){
         cantidad.innerText = "Movimiento n° " + cant
         guardarRegistro.value=false
         noGuardarRegistro.value=true
         registroNuevo = new herramientas(detalle.value,tipoMov,Number(montoMovimiento.value))
         newMoves.push(registroNuevo)
-        console.log("detalle: " + registroNuevo.detalle + " tipo:" + registroNuevo.tipo + " monto: "+registroNuevo.monto)
-        console.log(inicial)
         nuevoMensual = new mensual(inicial,newMoves)
-        console.log(nuevoMensual.arrayInicial)
-        console.log(nuevoMensual.movimientosMes)
         reportar(nuevoMensual)
         cant = 0
     }
