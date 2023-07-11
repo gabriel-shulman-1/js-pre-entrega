@@ -7,11 +7,7 @@ function escucharMes () {
     let montoInicial = document.getElementById("ingresoPlata")
     let iniciarRegistro = document.getElementById("inicioRegistro")
     let tituloPrincipal = document.getElementById("titulo")
-    for (let i = 0; i<mes.length;i++) {
-        mes[i].addEventListener("click", 
-        function(){console.log(mes[i].innerText)
-            mesSelected = (mes[i].innerText)},false)
-        }
+    for (let i = 0; i<mes.length;i++) {mes[i].addEventListener("click",function(){mesSelected = (mes[i].innerText)},false)}
     iniciarRegistro.addEventListener("click", tituloP)
     function tituloP() {
         tituloPrincipal.innerHTML = "<h2>Mes a controlar: " + mesSelected + ". Monto inicial: " + montoInicial.value + " $ </h2>"
